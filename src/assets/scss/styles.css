@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 /*!
  * Bootstrap v5.0.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -11302,6 +11303,12 @@ fieldset:disabled .btn {
   }
 }
 
+*,
+*::after,
+*::before {
+  font-family: "Inter", sans-serif;
+}
+
 a {
   text-decoration: none;
 }
@@ -11309,6 +11316,14 @@ a {
 ul,
 li {
   list-style: none;
+}
+
+.text-blue {
+  color: #191049 !important;
+}
+
+.text-cyan {
+  color: #6ce5df !important;
 }
 
 .bg-blue {
@@ -11332,6 +11347,6 @@ li {
 }
 
 .homepage section:nth-of-type(1) {
-  min-height: calc(100vh - 140px);
+  min-height: calc(100vh);
 }
 /*# sourceMappingURL=styles.css.map */

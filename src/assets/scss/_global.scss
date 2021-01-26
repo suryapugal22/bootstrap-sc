@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+    font-family: "Inter", sans-serif;
+}
+
 a {
     text-decoration: none;
 }
@@ -5,6 +11,14 @@ a {
 ul,
 li {
     list-style: none;
+}
+
+.text-blue {
+    color: #191049 !important;
+}
+
+.text-cyan {
+    color: #6ce5df !important;
 }
 
 .bg-blue {
