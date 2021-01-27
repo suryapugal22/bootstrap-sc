@@ -11319,6 +11319,10 @@ li {
   list-style: none;
 }
 
+.text-green {
+  color: #2ee58d;
+}
+
 .text-blue {
   color: #191049 !important;
 }
@@ -11343,7 +11347,11 @@ li {
   border-color: #6ce5df !important;
 }
 
-.bg-blue {
-  background-color: #191049 !important;
+.bg-green {
+  background-color: #2ee58d !important;
+}
+
+.bg-outline-green {
+  border-color: #2ee58d;
 }
 /*# sourceMappingURL=styles.css.map */
