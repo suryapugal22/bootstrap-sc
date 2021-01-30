@@ -322,3 +322,12 @@ async function groupCity() {
     console.log('groupCity-END');
 }
 
+
+// STICKY SIDEBAR ============================
+// let sidebar = new StickySidebar('#sidebar', {
+//     containerSelector: '#main-content',
+//     innerWrapperSelector: '.sidebar__inner',
+//     topSpacing: 20,
+//     bottomSpacing: 20
+// });
+

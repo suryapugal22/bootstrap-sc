@@ -11307,7 +11307,7 @@ fieldset:disabled .btn {
 *,
 *::after,
 *::before {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
 }
 
 a {
@@ -11353,5 +11353,16 @@ li {
 
 .bg-outline-green {
   border-color: #2ee58d;
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl {
+    max-width: 1230px !important;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
