@@ -1,4 +1,3 @@
-
 //  HANDLEBARS CONTAINERS ========================
 const organizationContainer = document.querySelector("#organizationContainer");
 
@@ -19,7 +18,7 @@ let stateList = {
     "state": [
         "Tamil Nadu",
         "Delhi",
-        "Rajasthana",
+        "Rajasthan",
         "option 3",
         "option 4",
         "option 5",

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <meta name="google-signin-client_id"
+        content="363296595311-qlr4dhs7jigoitbk7rgoft2r9dcma5as.apps.googleusercontent.com">
+
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/scss/styles.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR  =============================================== -->
+    <nav class="navbar navbar-expand-xl navbar-light bg-blue text-light position-absolute w-100">
+        <div class="container py-4">
+            <a class="navbar-brand ps-3" href="../">
+                <img src="../assets/images/STEM.svg" width="140px" alt="STEM Council">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-2 ms-md-auto">
+                    <li class="nav-item"><a href="../Market_Place/" class="nav-link text-light mx-2">Market Place</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link text-light mx-2 dropdown-toggle" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" id="providers">
+                            Providers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="providers">
+                            <li><a href="javascript:void(0)" class="dropdown-item">Collaborate with us</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item">Find your research partners</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Healthcare">
+                            Healthcare</a>
+                        <ul class="dropdown-menu" aria-labelledby="Healthcare">
+                            <li><a href="javascript:void(0)" class="dropdown-item">Learning and Development</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item">Career pathways</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item">Create your CV</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Public">
+                            Public</a>
+                        <ul class="dropdown-menu" aria-labelledby="Public">
+                            <li><a href="javascript:void(0)" class="dropdown-item">About Clinical Trials</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item">Volunteer for Clinical Trial</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item">Whats New</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false" id="irb_ice">
+                            IRB/IEC</a>
+                        <ul class="dropdown-menu" aria-labelledby="irb_ice">
+                            <li><a href="javascript:void(0)" class="dropdown-item">E - Learning</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item">Know the Framework</a></li>
+                            <li><a href="javascript:void(0)" class="dropdown-item">Connect with Experts</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link text-light mx-2">Products</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link text-light mx-2">About Us</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link text-light mx-2">Log In</a></li>
+                    <li class="nav-item"><a href="javascript:void(0)"
+                            class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3">Join Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--END NAVBAR  ============================================ -->
+
+
+
+
+    <section class="bg-blue" style="height: 100vh;">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-md-4 m-auto bg-light p-5 rounded-3">
+                    <h1 class="display-6 text-center mb-4">Welcome</h1>
+                    <form class="d-flex flex-column">
+                        <div class="col mb-3">
+                            <!-- <label for="firstName" class="form-label fs-5">First Name</label> -->
+                            <input class="form-control" name="firstName" type="text" id="firstName"
+                                placeholder="First Name" required autocomplete="off">
+                        </div>
+                        <div class="col mb-3">
+                            <!-- <label for="lastName" class="form-label fs-5">Last Name</label> -->
+                            <input class="form-control" name="lastName" type="text" id="lastName"
+                                placeholder="Last Name" required autocomplete="off">
+                        </div>
+                        <div class="col mb-3">
+                            <!-- <label for="email" class="form-label fs-5">Email</label> -->
+                            <input class="form-control" name="email" type="text" id="email" placeholder="Email Address"
+                                required autocomplete="email">
+                        </div>
+                        <button class="col d-block w-100 btn btn-primary border bg-cyan text-dark mx-auto">Sign
+                            Up</button>
+                    </form>
+                    <hr>
+                    <div class="g-signin2 d-flex justify-content-center  align-items-stretch" data-onsuccess="onSignIn">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+
+
+    <!-- FOOTER SECTION ======================================== -->
+    <footer class=" bg-blue text-light">
+        <div class="container px-4 px-md-0 py-5">
+            <div class="d-flex flex-row">
+
+                <p class="mb-0 col-12 col-md text-white-50"> &copy; Copyright <span class="text-light">Assay Clinical
+                        Research
+                    </span>. All Rights Reserved </p>
+                <ul class="col-12 col-md d-flex mb-0">
+                    <li class="ms-auto"> <a class="mx-2 text-white-50" href="javascript:void(0)">Home</a> </li>
+                    <li> <a class="mx-2 text-white-50" href="javascript:void(0)">About</a> </li>
+                    <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Privacy Policy</a> </li>
+                    <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Terms of Use</a> </li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+    <!-- END FOOTER SECTION ==================================== -->
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="./signUp.js"></script>
+
+</body>
+
+</html>

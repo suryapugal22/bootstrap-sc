@@ -4,20 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organization</title>
+    <title>Patients, Caregivers and Public</title>
 
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../assets/scss/styles.css">
-
-
 </head>
 
 <body>
 
     <!-- NAVBAR  =============================================== -->
-    <nav class="navbar navbar-expand-xl navbar-light bg-transparent text-light position-absolute w-100"
-        style="z-index: 10000;">
+    <nav class="navbar navbar-expand-xl navbar-light bg-blue text-light position-relative w-100">
         <div class="container py-4">
             <a class="navbar-brand ps-3" href="../">
                 <img src="../assets/images/STEM.svg" width="140px" alt="STEM Council">
@@ -31,7 +27,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-2 ms-md-auto">
-                    <li class="nav-item"><a href="../Market_Place/" class="nav-link text-light mx-2">Market Place</a>
+                    <li class="nav-item"><a href="Market_Place/index.html" class="nav-link text-light mx-2">
+                            Market Place</a>
                     </li>
                     <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false" id="providers">
@@ -81,100 +78,57 @@
     <!--END NAVBAR  ============================================ -->
 
 
-
-    <!-- ORGANIZATION HEADER SECTION =========================== -->
-    <section class="text-light bg-blue">
-        <div class="container-fluid px-0" id="header-container">
-            <script type="text/x-handlebars-template" id="header-template">
-            <div class="card bg-dark text-white">
-                {{#if banner}}
-                <img src="https://sage-website-ui-assets-s3.s3.ap-south-1.amazonaws.com/{{banner}}" class="card-img img-fluid" width="100%" alt="banner"
-                    style="filter: brightness(50%);max-height: 600px; height: 600px !important;" >
-                {{else}}
-                <img src="//unsplash.it/1600/500" class="card-img img-fluid" width="100%" alt="banner"
-                    style="filter: brightness(50%);max-height: 600px; height: 600px !important;" >
-                {{/if}}
-
-                <div class="card-img-overlay container d-flex flex-row align-items-end">
-                    
-                    {{#if logo}}
-                        <img src="https://sage-website-ui-assets-s3.s3.ap-south-1.amazonaws.com/{{logo}}" width="200" height="200" class="img-thumbnail me-3" alt="Brand Logo" style="object-fit: contain;height: 160px; width: 160px;"   >
-                    {{else}}
-                        <img src="//unsplash.it/160/160" width="200" height="200" class="img-thumbnail me-3" alt="Brand Logo" style="object-fit: contain;  height: 160px; width: 160px;" >
-                    {{/if}}
-
-                    <div class="container mb-2">
-                        <h5 class="card-title mt-auto mb-3 display-6">{{name}}</h5>
-                        <a href="{{webLink}}" class="card-text text-light fw-light fs-6 mb-0">
-                            <i class="bi bi-link-45deg me-2"></i>
-                            {{webLink}}
-                        </a>
-                        <p class="card-text fw-light fs-6 mt-2">
-                            <i class="bi bi-geo-alt-fill me-2"></i>
-                            {{cityName}}, {{stateName}}, {{countryName}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </script>
-        </div>
-    </section>
-    <!-- END ORGANIZATION HEADER SECTION ======================= -->
-
-
-    <!-- ORGANIZATION HEADER SECTION =========================== -->
-    <section class="text-light bg-blue py-4">
-        <div class="container py-3 px-4">
-            <div class="row">
-                <div class="col-md-9 text-white-50" id="body-container">
-                    <script type="text/x-handlebars-template" id="body-template">
-                        <h3 class="display-5 text-light">About</h3>
-                        <p class="lh-base">
-                            {{aboutUs}}
-                        </p>
-
-                        {{#if services}}
-                        <h3 class="display-5 mt-4 text-light">Services</h3>
-                        <ul>
-                            {{#each services}}
-                                <li class="">
-                                    <p>{{this}}</p>
-                                </li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                    </script>
-                </div>
-                <div class="col-md d-none d-md-block mt-5 pt-3" id="body-container-2">
-                    <script type="text/x-handlebars-template" id="body-template-2">
-
-                    <div class="card bg-cyan">
-                        <div class="card-body">
-                            <h1 class="text-center display-3">
-                                {{#if (stat status)}}
-                                <i class="fas fa-handshake text-blue"></i>
-                                {{else}}
-                                <i class="fas fa-hand-holding text-blue"></i>
-                                {{/if}}
-                            </h1>
-                            <p class="text-black-50 text-center">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo atque dolor,
-                                laboriosam sit
-                            </p>
-                            {{#if (stat status)}}
-                            <a href="#" class="btn bg-blue text-light d-block mx-auto">Log In</a>
-                            {{else}}
-                            <a href="#" class="btn bg-blue text-light d-block mx-auto">Claim your page</a>
-                            {{/if}}
-                        </div>
-                    </div>
-                    </script>
-                </div>
+    <!-- PATIENTS SECTION ====================================== -->
+    <section class="bg-blue text-white-50">
+        <div class="container py-5">
+            <h1 class="display-4 mb-4 text-light">
+                Patients, Caregivers and the Public
+            </h1>
+            <div class="px-4 mx-auto">
+                <p class="lead">
+                    Every health research activity targets the safety and well-being of patients and the public. Their
+                    participation is the key in getting new, safe and effective treatment options and to further study
+                    diseases/conditions for their better management
+                </p>
+                <p class="lead">
+                    STEM council is taking steps to connect with patients, caregivers and the public to increase
+                    awareness of and education on ethical clinical trials, patient rights, and how they can further
+                    volunteer in research activities. We greatly value the contribution made by patients and the public
+                    and hence want to do the best research that is vital to the healthcare and social needs which
+                    benefit the country
+                </p>
             </div>
         </div>
     </section>
-    <!-- END ORGANIZATION HEADER SECTION ======================= -->
+    <!-- END PATIENTS SECTION ================================== -->
 
+
+    <!-- CLINICAL TRIAL SECTION ================================ -->
+    <section class="bg-blue text-white-50">
+        <div class="container py-5">
+            <h1 class="display-4 text-light">
+                Know about Clinical Trials
+            </h1>
+            <div class="px-4 mx-auto">
+                <p class="lead">
+                    The recent pandemic (COVID-19) has taken the term ‘clinical trials’ to every household
+                </p>
+                <p class="lead">
+                    Every patient or volunteer who decides to participate in a clinical trial and makes informed
+                    decisions based on the specific clinical trial information presented to them. Nevertheless, it can
+                    become a tiring experience and hence we have provided resources and tools that can be used by those
+                    interested to know more about clinical trials. This attempt is to enhance the trial experience and
+                    increase awareness
+                </p>
+                <p class="lead">
+                    As an attempt to improve trial experience, if you have previously taken part in a clinical trial and
+                    would like to leave feedback, Please
+                    <a href="javascript:void(0)" class="text-cyan">Click here</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- END CLINICAL TRIAL SECTION ============================ -->
 
 
 
@@ -197,16 +151,6 @@
         </div>
     </footer>
     <!-- END FOOTER SECTION ==================================== -->
-
-
-
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
-    <script src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="../../node_modules/axios/dist/axios.min.js"></script>
-    <script src="../js/services.js"></script>
-    <script src="./organization.js"></script>
 
 
 </body>
