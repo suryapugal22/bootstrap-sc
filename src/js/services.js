@@ -1,6 +1,7 @@
 
 const API_URL = "https://nodeapi.stem-council.com:3000/api/"
 
+
 function getAllOrganizations() {
     const _url = `${API_URL}organizations/list/1/15`;
     return axios.get(_url);
@@ -8,6 +9,9 @@ function getAllOrganizations() {
 
 
 let serverUrl = "https://nodeapi.stem-council.com:3000/api";
+// let serverUrl = "https://frozen-inlet-42025.herokuapp.com/api";
+// let serverUrl = "http://localhost:3000/api";
+
 
 function signUp(details) {
     let url = serverUrl + `/users/signUp`;

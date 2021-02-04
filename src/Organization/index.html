@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organization</title>
 
-    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="../assets/scss/styles.css">
 
@@ -38,7 +39,7 @@
                             Providers</a>
                         <ul class="dropdown-menu" aria-labelledby="providers">
                             <li><a href="../Vendor/#" class="dropdown-item">Collaborate with us</a></li>
-                           <li><a href="../Vendor/#" class="dropdown-item">Find your research partners</a></li>
+                            <li><a href="../Vendor/#" class="dropdown-item">Find your research partners</a></li>
 
                         </ul>
                     </li>
@@ -48,7 +49,7 @@
                         <ul class="dropdown-menu" aria-labelledby="Healthcare">
                             <li><a href="../Healthcare/#" class="dropdown-item">Learning and Development</a></li>
 
-                                                        <li><a href="../Healthcare/" class="dropdown-item">Career pathways</a></li>
+                            <li><a href="../Healthcare/" class="dropdown-item">Career pathways</a></li>
 
                             <li><a href="../Healthcare/" class="dropdown-item">Create your CV</a></li>
                         </ul>
@@ -67,7 +68,7 @@
                             role="button" data-bs-toggle="dropdown" aria-expanded="false" id="irb_ice">
                             IRB/IEC</a>
                         <ul class="dropdown-menu" aria-labelledby="irb_ice">
-                                                        <li><a href="../IRB/#" class="dropdown-item">Whats New</a></li>
+                            <li><a href="../IRB/#" class="dropdown-item">Whats New</a></li>
 
                             <li><a href="../IRB/#" class="dropdown-item">Know the Framework</a></li>
                             <li><a href="../IRB/#" class="dropdown-item">Connect with Experts</a></li>
@@ -76,7 +77,7 @@
                     <li class="nav-item"><a href="../Technology/" class="nav-link text-light mx-2">Products</a></li>
                     <li class="nav-item"><a href="../About/" class="nav-link text-light mx-2">About Us</a></li>
                     <li class="nav-item"><a href="../Sign_Up/" class="nav-link text-light mx-2">Log In</a></li>
-                         <li class="nav-item"><a href="../Sign_Up/"
+                    <li class="nav-item"><a href="../Sign_Up/"
                             class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3">Join Us</a></li>
                 </ul>
             </div>
@@ -166,9 +167,9 @@
                                 laboriosam sit
                             </p>
                             {{#if (stat status)}}
-                            <a href="#" class="btn bg-blue text-light d-block mx-auto">Log In</a>
+                            <a href="../Sign_Up/" class="btn bg-blue text-light d-block mx-auto">Log In</a>
                             {{else}}
-                            <a href="#" class="btn bg-blue text-light d-block mx-auto">Claim your page</a>
+                            <a href="../Sign_Up/?o={{name}}&i={{id}}&t={{type}}&s={{source}}" class="btn bg-blue text-light d-block mx-auto">Claim your page</a>
                             {{/if}}
                         </div>
                     </div>
@@ -203,12 +204,18 @@
     <!-- END FOOTER SECTION ==================================== -->
 
 
-
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
-    <script src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="../../node_modules/axios/dist/axios.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js'
+        integrity='sha512-ZvbjbJnytX9Sa03/AcbP/nh9K95tar4R0IAxTS2gh2ChiInefr1r7EpnVClpTWUEN7VarvEsH3quvkY1h0dAFg=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/cjs/popper.min.js'
+        integrity='sha512-Wolz9yzdoTL6avwJTzh/0yUSqZ458EVnKgsAnOCs1H+A3VEtGDvPvD0klPKU5TkZ3BfnFPcxmr74S/YiPiTNBA=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/js/all.min.js'
+        integrity='sha512-LW9+kKj/cBGHqnI4ok24dUWNR/e8sUD8RLzak1mNw5Ja2JYCmTXJTF5VpgFSw+VoBfpMvPScCo2DnKTIUjrzYw=='
+        crossorigin='anonymous'></script>
+    <!-- <script src="../../node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script> -->
+    <script src="../../js/handlebars.min.js"></script>
+    <script src="../../js/axios.min.js"></script>
     <script src="../js/services.js"></script>
     <script src="./organization.js"></script>
 
