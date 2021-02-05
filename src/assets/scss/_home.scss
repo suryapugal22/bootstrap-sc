@@ -1,0 +1,9 @@
+nav {
+    .navbar-collapse {
+        .dropdown-item {
+            &:active {
+                background-color: transparent;
+            }
+        }
+    }
+}

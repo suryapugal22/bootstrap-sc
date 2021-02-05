@@ -8,8 +8,8 @@ function getAllOrganizations() {
 
 
 // let serverUrl = "https://nodeapi.stem-council.com:3000/api";
-let serverUrl = "https://frozen-inlet-42025.herokuapp.com/api";
-// let serverUrl = "http://localhost:3000/api";
+// let serverUrl = "https://frozen-inlet-42025.herokuapp.com/api";
+let serverUrl = "http://localhost:3000/api";
 
 
 function signUp(details) {
@@ -176,3 +176,13 @@ function getTherapeuticList() {
     return axios.get(url)
 }
 
+function getAllBlogs() {
+    const url = serverUrl + '/common/getAllBlogs';
+    console.log(url);
+    return axios.get(url);
+}
+
+function getSingleBlog(id) {
+    const url = serverUrl + `/blogs/getsingleblogs/${id}`
+    return axios.get(url)
+}

@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-xl navbar-light bg-transparent text-light position-absolute w-100"
         style="z-index: 1000000;">
         <div class="container py-4">
-            <a class="navbar-brand ps-3" href="../">
+            <a class="navbar-brand ps-3" href="../../">
                 <img src="../../assets/images/STEM.svg" width="140px" alt="STEM Council">
             </a>
 
@@ -29,47 +29,49 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-2 ms-md-auto">
-                    <li class="nav-item"><a href="../../Market_Place/" class="nav-link text-light mx-2">
-                            Market Place</a>
+                <ul class="navbar-nav ms-2 ms-md-auto ">
+                    <li class="nav-item">
+                        <a href="Market_Place/" class="nav-link text-light mx-2"> Market Place</a>
                     </li>
-                    <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false" id="providers">
+                    <li class="nav-item dropdown ">
+                        <a href="#" class="nav-link text-light mx-2 dropdown-toggle" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" id="providers">
                             Providers</a>
-                        <ul class="dropdown-menu" aria-labelledby="providers">
-                            <li><a href="../../Vendor/#" class="dropdown-item">Collaborate with us</a></li>
-                            <li><a href="../../Vendor/#" class="dropdown-item">Find your research partners</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Healthcare">
-                            Healthcare</a>
-                        <ul class="dropdown-menu" aria-labelledby="Healthcare">
-                            <li><a href="../../Healthcare/#" class="dropdown-item">Learning and Development</a></li>
-                            <li><a href="../../Healthcare/#" class="dropdown-item">Career pathways</a></li>
-                            <li><a href="../../Healthcare/#" class="dropdown-item">Create your CV</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false" id="Public">
-                            Public</a>
-                        <ul class="dropdown-menu" aria-labelledby="Public">
-                            <li><a href="../../Patient/#" class="dropdown-item">About Clinical Trials</a></li>
-                            <li><a href="../../Patient/#" class="dropdown-item">Volunteer for Clinical Trial</a></li>
-                            <li><a href="../../Patient/#" class="dropdown-item">Whats New</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown"><a href="#" class="nav-link text-light mx-2 dropdown-toggle"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false" id="irb_ice">
-                            IRB/IEC</a>
-                        <ul class="dropdown-menu" aria-labelledby="irb_ice">
-                            <li><a href="../../IRB/#" class="dropdown-item">E - Learning</a></li>
-                            <li><a href="../../IRB/#" class="dropdown-item">Know the Framework</a></li>
-                            <li><a href="../../IRB/#" class="dropdown-item">Connect with Experts</a></li>
+                        <ul class="dropdown-menu text-black shadow" aria-labelledby="providers"
+                            style="transform: translateX(-58.25%);">
+                            <div class="d-flex flex-row p-3">
+                                <li class="col col-md">
+                                    <h6 class="text-nowrap pb-2 p-3 fs-5">Industry Researcher and Vendors</h6>
+                                    <a href="../../Vendor/#" class="dropdown-item text-black-50">Collaborate with us</a>
+                                    <a href="../Vendor/" class="dropdown-item text-black-50">Find your research
+                                        partners</a>
+                                </li>
+                                <li class="col col-md">
+                                    <h6 class="text-nowrap pb-2 p-3 fs-5">Healthcare Professionals</h6>
+                                    <a href="../../Healthcare/" class="dropdown-item text-black-50">Learning and
+                                        Development</a>
+                                    <a href="../../Healthcare/" class="dropdown-item text-black-50">Career pathways</a>
+                                    <a href="../../Healthcare/" class="dropdown-item text-black-50">Create your CV</a>
+                                </li>
+                                <li class="col col-md">
+                                    <h6 class="text-nowrap pb-2 p-3 fs-5">Patients, Caregivers and Public</h6>
+                                    <a href="../../Patient/" class="dropdown-item text-black-50">About Clinical
+                                        Trials</a>
+                                    <a href="../../Patient/" class="dropdown-item text-black-50">Volunteer for Clinical
+                                        Trial</a>
+                                    <a href="../../Patient/" class="dropdown-item text-black-50">Whats New</a>
+                                </li>
+                                <li class="col col-md">
+                                    <h6 class="text-nowrap pb-2 p-3 fs-5">IRB/IEC</h6>
+                                    <a href="../../IRB/" class="dropdown-item text-black-50">E - Learning</a>
+                                    <a href="../../IRB/" class="dropdown-item text-black-50">Know the Framework</a>
+                                    <a href="../../IRB/" class="dropdown-item text-black-50">Connect with Experts</a>
+                                </li>
+                            </div>
                         </ul>
                     </li>
                     <li class="nav-item"><a href="../../Technology/" class="nav-link text-light mx-2">Products</a></li>
+                    <li class="nav-item"><a href="../../Blogs/" class="nav-link text-light mx-2">Blogs</a></li>
                     <li class="nav-item"><a href="../../About/" class="nav-link text-light mx-2">About Us</a></li>
                     <li class="nav-item"><a href="../../Sign_Up/" class="nav-link text-light mx-2">Log In</a></li>
                     <li class="nav-item"><a href="../../Sign_Up/"
@@ -82,7 +84,8 @@
 
 
     <!-- BLOGS LIST SECTION ==================================== -->
-    <section class="bg-blue text-white-50 pb-5">
+    <section class="bg-blue text-white-50 pb-5" id="blogsContainer">
+        <script type="text/x-handlebars-template" id="blogsTemplate">
         <div class="container-fluid px-0">
             <img src="//unsplash.it/1000/300" width="100%" alt="blog-cover" class="img-fluid"
                 style="filter: brightness(50%);">
@@ -90,17 +93,23 @@
 
         <div class="container pt-5">
             <h1 class="display-4 text-white mb-3">
-                Blog Title Will be here
+                {{title}}
             </h1>
 
             <div class="row mb-4">
-                <small class="mb-2">Author: Dinesh</small>
-                <small class="mb-2">Time: <time>02-02-2021</time> </small>
+                <small class="mb-2">Author: {{created_by}}</small>
+                <small class="mb-2">Time: <time>{{dt date}}</time> </small>
                 <small class="col d-flex flex-row align-items-center">Share:
-                    <a class="text-cyan d-block ms-3 fs-6" href="javascript:void(0)"><i class="bi bi-facebook"></i></a>
-                    <a class="text-cyan d-block ms-3 fs-6" href="javascript:void(0)"><i class="bi bi-linkedin"></i></a>
-                    <a class="text-cyan d-block ms-3 fs-6" href="javascript:void(0)"><i class="bi bi-twitter"></i></a>
-                    <a class="text-cyan d-block ms-3 fs-6" href="javascript:void(0)"><i
+                    <a class="text-cyan d-block ms-3 fs-6" href="http://www.facebook.com/sharer.php?u={{link}}" target="_blank">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a class="text-cyan d-block ms-3 fs-6" href="http://www.linkedin.com/shareArticle?mini=true&amp;{{link}}" target="_blank">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a class="text-cyan d-block ms-3 fs-6" href="https://twitter.com/share?url={{link}}&amp;text={{title}}" target="_blank">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a class="text-cyan d-block ms-3 fs-6" href="#" onclick="copyUrl()"><i
                             class="bi bi-share-fill"></i></a>
                 </small>
             </div>
@@ -140,6 +149,7 @@
 
 
         </div>
+        </script>
     </section>
     <!-- END BLOGS LIST SECTION ================================ -->
 
@@ -167,10 +177,16 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js'
         integrity='sha512-ZvbjbJnytX9Sa03/AcbP/nh9K95tar4R0IAxTS2gh2ChiInefr1r7EpnVClpTWUEN7VarvEsH3quvkY1h0dAFg=='
         crossorigin='anonymous'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/cjs/popper.min.js'
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/cjs/popper.min.js'
         integrity='sha512-Wolz9yzdoTL6avwJTzh/0yUSqZ458EVnKgsAnOCs1H+A3VEtGDvPvD0klPKU5TkZ3BfnFPcxmr74S/YiPiTNBA=='
+        crossorigin='anonymous'></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'
+        integrity='sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=='
         crossorigin='anonymous'></script>
-
+    <script src="../../js/handlebars.min.js"></script>
+    <script src="../../js/axios.min.js"></script>
+    <script src="../../js/services.js"></script>
+    <script src="blog.js"></script>
 
 
 </body>
