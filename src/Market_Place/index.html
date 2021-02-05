@@ -163,18 +163,17 @@
                     <div class="card mb-3">
                         <div class="card-header">Services</div>
                         <div class="card-body">
-
                             <div class="mb-3">
                                 <!-- <label for="filter-services" class="form-label"></label> -->
                                 <input type="text" class="form-control" id="filter-services"
-                                    placeholder="name@example.com" oninput="serviceInputFn(event)">
+                                    oninput="serviceInputFn(event)">
                             </div>
                             <div class=" overflow-auto px-2" id="filter-services-options" style="height: 300px;">
                                 <script type="text/template" id="filter-services-options-template">
                                 {{#each services}}
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="service" data-name={{name}}
-                                    data-state="{{state_id}}" id="{{trim name}}" value="{{id}}">
+                                    id="{{trim name}}" value="{{id}}">
                                     <label class="form-check-label" for="{{trim name}}">
                                         {{name}}
                                     </label>
@@ -191,14 +190,13 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <!-- <label for="filter-services" class="form-label"></label> -->
-                                <input type="text" class="form-control" id="filter-state" placeholder="name@example.com"
-                                    oninput="stateInputFn">
+                                <input type="text" class="form-control" id="filter-state" oninput="stateInputFn()">
                             </div>
                             <div class="overflow-auto px-2" id="filter-state-options" style="height: 300px;">
                                 <script type="text/template" id="filter-state-options-template">
                                 {{#each state}}
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="state" data-name={{name}}
+                                    <input class="form-check-input" type="checkbox" name="state" data-name="{{name}}"
                                         data-state="{{country_id}}" id="{{trim name}}" value="{{id}}">
                                     <label class="form-check-label" for="{{trim name}}">
                                         {{name}}
@@ -216,8 +214,7 @@
                         <div class="card-body ">
                             <div class="mb-3">
                                 <!-- <label for="filter-services" class="form-label"></label> -->
-                                <input type="text" class="form-control" id="filter-city" placeholder="name@example.com"
-                                    oninput="cityInputFn(event)">
+                                <input type="text" class="form-control" id="filter-city" oninput="cityInputFn()">
                             </div>
                             <div class="px-2 overflow-auto" id="filter-city-options" style="height: 300px;">
                                 <script type="text/template" id="filter-city-options-template">
@@ -227,6 +224,30 @@
                                         data-state={{state_id}} id={{trim name}} value={{id}}>
                                     <label class="form-check-label" for={{trim name}}>
                                         {{name}}
+                                    </label>
+                                </div>
+                                {{/each}}
+                            </script>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card mb-3">
+                        <div class="card-header">Therapeutic Area</div>
+                        <div class="card-body ">
+                            <div class="mb-3">
+                                <!-- <label for="filter-services" class="form-label"></label> -->
+                                <input type="text" class="form-control" id="filter-therapeutic"
+                                    oninput="therapeuticInputFn(event)">
+                            </div>
+                            <div class="px-2 overflow-auto" id="filter-therapeutic-options" style="height: 300px;">
+                                <script type="text/template" id="filter-therapeutic-options-template">
+                                {{#each therapeutic}}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="therapeutic" data-name={{name}} id={{trim category}} value={{id}}>
+                                    <label class="form-check-label" for={{trim category}}>
+                                        {{category}}
                                     </label>
                                 </div>
                                 {{/each}}
@@ -338,12 +359,12 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js'
         integrity='sha512-ZvbjbJnytX9Sa03/AcbP/nh9K95tar4R0IAxTS2gh2ChiInefr1r7EpnVClpTWUEN7VarvEsH3quvkY1h0dAFg=='
         crossorigin='anonymous'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/cjs/popper.min.js'
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/cjs/popper.min.js'
         integrity='sha512-Wolz9yzdoTL6avwJTzh/0yUSqZ458EVnKgsAnOCs1H+A3VEtGDvPvD0klPKU5TkZ3BfnFPcxmr74S/YiPiTNBA=='
-        crossorigin='anonymous'></script>
-    <script type="text/javascript" src="../../js/handlebars.min.js"></script>
-    <script type="text/javascript" src="../../js/axios.min.js"></script>
-    <script type="text/javascript" src="../../js/clamp.js"></script>
+        crossorigin='anonymous'></script> -->
+    <script type="text/javascript" src="../../src/js/handlebars.min.js"></script>
+    <script type="text/javascript" src="../../src/js/axios.min.js"></script>
+    <script type="text/javascript" src="../../src/js/clamp.js"></script>
     <script type="text/javascript" src="../js/services.js"></script>
     <script type="module" src="./market.js"></script>
 </body>

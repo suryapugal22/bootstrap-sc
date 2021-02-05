@@ -1,4 +1,3 @@
-
 const API_URL = "https://nodeapi.stem-council.com:3000/api/"
 
 
@@ -8,9 +7,9 @@ function getAllOrganizations() {
 }
 
 
-let serverUrl = "https://nodeapi.stem-council.com:3000/api";
+// let serverUrl = "https://nodeapi.stem-council.com:3000/api";
 // let serverUrl = "https://frozen-inlet-42025.herokuapp.com/api";
-// let serverUrl = "http://localhost:3000/api";
+let serverUrl = "http://localhost:3000/api";
 
 
 function signUp(details) {
@@ -65,7 +64,7 @@ function organizationList() {
 
 function organizationLimitedList(arg) {
 
-    const { limit, pageNo, type, search, state, city, service, id } = arg
+    const { limit, pageNo, type, search, state, city, service, therapeutic, id } = arg
 
     let url = serverUrl + `/organizations/list/${pageNo}/${limit}`;
     let params = false
@@ -115,6 +114,17 @@ function organizationLimitedList(arg) {
         else
             url += `?search=${search}`
 
+    if (therapeutic) {
+        if (params)
+            url += `&therapeutic=${therapeutic}`
+        else {
+            url += `?therapeutic=${therapeutic}`
+            params = true
+        }
+
+    }
+
+
     if (id)
         if (params)
             url += `&id=${id}`
@@ -158,6 +168,11 @@ function multipleFileUpload(data) {
 
 function services() {
     let url = serverUrl + '/common/servicelist';
+    return axios.get(url)
+}
+
+function getTherapeuticList() {
+    const url = serverUrl + '/common/getalltherapeutics';
     return axios.get(url)
 }
 

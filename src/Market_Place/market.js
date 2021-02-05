@@ -55,27 +55,45 @@ let cityList = {
         "option 10"
     ],
 }
+let therapeuticList = {
+    "therapeutic": [
+        "Phase I",
+        "Phase II",
+        "Phase III",
+        "Phase IV",
+        "Phase I-A",
+        "option 6",
+        "option 7",
+        "option 8",
+        "option 9",
+        "option 10"
+    ],
+}
 
 const filter_modal = document.querySelector('.filter-content');
 
 let service_input,
     state_input,
-    city_input;
+    city_input,
+    therapeutic_input;
 
 
 const service_container = filter_modal.querySelector('#filter-services-options'),
     state_container = filter_modal.querySelector('#filter-state-options'),
     city_container = filter_modal.querySelector('#filter-city-options'),
+    therapeutic_container = filter_modal.querySelector('#filter-therapeutic-options'),
 
     service_template = Handlebars.compile(filter_modal.querySelector('#filter-services-options-template').innerHTML),
     state_template = Handlebars.compile(filter_modal.querySelector('#filter-state-options-template').innerHTML),
-    city_template = Handlebars.compile(filter_modal.querySelector('#filter-city-options-template').innerHTML);
+    city_template = Handlebars.compile(filter_modal.querySelector('#filter-city-options-template').innerHTML),
+    therapeutic_template = Handlebars.compile(filter_modal.querySelector('#filter-therapeutic-options-template').innerHTML);
 
 
 let selected = {
     type: [],
     service: [],
-    location: {}
+    location: {},
+    therapeutic: []
 }
 
 let params = new URLSearchParams(location.search),
@@ -86,9 +104,10 @@ let params = new URLSearchParams(location.search),
 
 async function getData(limit = 15) {
     const type = selected.type
+    const services = selected.service
+    const therapeutic = selected.therapeutic
     const state = Object.keys(selected.location)
     const city = state.map(sId => { return selected.location[sId] })
-    const services = selected.service
 
     const arg = {
         limit,
@@ -98,6 +117,7 @@ async function getData(limit = 15) {
         'state': state.toString(),
         'city': city.toString(),
         'service': services.toString(),
+        'therapeutic': therapeutic.toString(),
     };
 
     await organizationLimitedList(arg)
@@ -120,48 +140,6 @@ function clampDesc() {
 }
 
 
-cities()
-    .then(async res => {
-        cityList.city = await res.data
-        city_container.innerHTML = city_template(cityList)
-        groupCity();
-        city_input = filter_modal.querySelector('#filter-city')
-    })
-// .then(() => {
-//     city_input.oninput = cityInputFn
-// })
-
-
-states()
-    .then(async res => {
-        stateList.state = await res.data
-        state_container.innerHTML = state_template(stateList)
-        groupState();
-        state_input = filter_modal.querySelector('#filter-state')
-    })
-// .then(() => {
-//     state_input.oninput = stateInputFn
-// })
-
-
-services()
-    .then(async res => {
-        serviceList.services = await res.data
-        service_container.innerHTML = await service_template(serviceList)
-        groupServices();
-        service_input = await filter_modal.querySelector('#filter-services')
-        console.log(" got input");
-        console.log(service_input);
-    })
-// .then(() => {
-//     service_input.oninput = serviceInputFn;
-//     service_input.onchange = serviceInputFn;
-// })
-
-window.onloadstart = () => {
-    console.log(service_input);
-}
-
 
 function serviceInputFn(event) {
     let _serviceList = {
@@ -179,21 +157,15 @@ function serviceInputFn(event) {
 
 
 function stateInputFn(event) {
-    const _cityList = filter_modal.querySelectorAll('input[name=state]')
+    const _stateList = filter_modal.querySelectorAll('input[name=state]')
 
-    let _stateList = {
-        "state": []
-    }
-    const target = event.target;
-    const value = target.value
+    const { value } = event.target;
 
-    console.log(value.toLowerCase().replace(/\s+/g, ""));
-    console.log(_cityList[0].dataset.name.toLowerCase().replace(/\s+/g, ""));
-
-    _cityList.forEach(c => {
-        if (c.dataset.name.toLowerCase().replace(/\s+/g, "").includes(value.toLowerCase().replace(/\s+/g, ""))) {
+    _stateList.forEach(c => {
+        const contains = c.dataset.name.toLowerCase().replace(/\s+/g, "").includes(value.toLowerCase().replace(/\s+/g, ""))
+        if (contains) {
             // console.log("false");
-            c.parentElement.hidden = "relative";
+            c.parentElement.style.position = "relative";
             c.parentElement.style.zIndex = '1';
             c.parentElement.style.opacity = '1';
         } else {
@@ -209,11 +181,28 @@ function stateInputFn(event) {
 function cityInputFn(event) {
     const _cityList = filter_modal.querySelectorAll('input[name=city]')
 
-    const target = event.target;
-    const value = target.value
-
+    const { value } = event.target;
 
     _cityList.forEach(c => {
+        if (c.dataset.name.toLowerCase().replace(/\s+/g, "").includes(value.toLowerCase().replace(/\s+/g, ""))) {
+            c.parentElement.style.position = "relative";
+            c.parentElement.style.zIndex = '1';
+            c.parentElement.style.opacity = '1';
+        } else {
+            c.parentElement.style.position = "absolute";
+            c.parentElement.style.zIndex = '-1';
+            c.parentElement.style.opacity = '0';
+        }
+    })
+    groupCity();
+}
+
+
+function therapeuticInputFn(event) {
+    const _therapeuticList = filter_modal.querySelectorAll('input[name=therapeutic]')
+    const { value } = event.target
+
+    _therapeuticList.forEach(c => {
         if (c.dataset.name.toLowerCase().replace(/\s+/g, "").includes(value.toLowerCase().replace(/\s+/g, ""))) {
             // console.log("false");
             c.parentElement.style.position = "relative";
@@ -225,7 +214,59 @@ function cityInputFn(event) {
             c.parentElement.style.opacity = '0';
         }
     })
-    groupCity();
+    groupTherapeutic();
+}
+
+
+
+cities()
+    .then(async res => {
+        cityList.city = await res.data
+        city_container.innerHTML = city_template(cityList)
+        groupCity();
+        city_input = filter_modal.querySelector('#filter-city')
+        city_input.oninput = cityInputFn
+    })
+
+
+states()
+    .then(async res => {
+        stateList.state = await res.data
+        state_container.innerHTML = state_template(stateList)
+        groupState();
+        state_input = filter_modal.querySelector('#filter-state')
+        state_input.oninput = stateInputFn
+    })
+
+
+services()
+    .then(async res => {
+        serviceList.services = await res.data
+        service_container.innerHTML = await service_template(serviceList)
+        groupServices();
+        service_input = await filter_modal.querySelector('#filter-services')
+        console.log(" got input");
+        console.log(service_input);
+        service_input.oninput = serviceInputFn;
+    })
+// .then(() => {
+//     service_input.onchange = serviceInputFn;
+// })
+
+getTherapeuticList()
+    .then(async res => {
+        therapeuticList.therapeutic = await res.data;
+        therapeutic_container.innerHTML = await therapeutic_template(therapeuticList)
+        groupTherapeutic();
+        therapeutic_input = await filter_modal.querySelector('#filter-therapeutic')
+        therapeutic_input.oninput = therapeuticInputFn;
+    })
+
+
+
+
+window.onloadstart = () => {
+    console.log(service_input);
 }
 
 
@@ -246,6 +287,25 @@ async function groupType() {
             getData();
         }
         console.log(g.onclick);
+    })
+}
+
+
+
+function groupTherapeutic() {
+    event.stopPropagation()
+    const _therapeutic = document.getElementsByName("therapeutic");
+    console.log(_therapeutic.length);
+    _therapeutic.forEach(s => {
+        s.onclick = () => {
+            if (s.checked)
+                selected.therapeutic.push(s.value)
+            else {
+                let index = selected.therapeutic.indexOf(s.value);
+                selected.therapeutic.splice(index, 1)
+            }
+            getData()
+        }
     })
 }
 

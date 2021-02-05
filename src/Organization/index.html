@@ -133,21 +133,72 @@
             <div class="row">
                 <div class="col-md-9 text-white-50" id="body-container">
                     <script type="text/x-handlebars-template" id="body-template">
-                        <h3 class="display-5 text-light">About</h3>
-                        <p class="lh-base">
-                            {{aboutUs}}
-                        </p>
+                        <div class="mb-5">
+                            <h3 class="display-5 text-white">About</h3>
+                            <p class="lh-base">
+                                {{aboutUs}}
+                            </p>
+                        </div>
 
                         {{#if services}}
-                        <h3 class="display-5 mt-4 text-light">Services</h3>
-                        <ul>
-                            {{#each services}}
-                                <li class="">
-                                    <p>{{this}}</p>
+                        <div class="mb-5">
+                            <h3 class="display-5 pb-3 text-white">Services</h3>
+                            <ul class="px-2">
+                                {{#each services}}
+                                <li class="mb-2">
+                                    <h1 class="fs-4 text-light">{{name}}</h1>
+                                    <p class="mb-4">{{desc}}</p>
                                 </li>
-                            {{/each}}
-                        </ul>
+                                {{/each}}
+                            </ul>
+                        </div>
                         {{/if}}
+
+                    {{#if facilities}}
+                    <div class="mb-3">
+                        <h3 class="display-5 my-5 text-light"> Facilities </h3>
+                        <ul>
+                            {{#if facilities.defibrillators}}
+                            <li>
+                                <h1 class="fs-4 text-light"> Defibrillators </h1>
+                            </li>
+                            {{/if}}
+
+                            {{#if  facilities.icu.icu.status}}
+                            <li>
+                                <h1 class="fs-4 text-light">General/Surgical Care Unit</h1>
+                                <p class="mb-4">{{facilities.icu.icu.beds}}</p>
+                            </li>
+                            {{/if}}
+
+                            {{#if  facilities.icu.ccu.status}}
+                            <li>
+                                <h1 class="fs-4 text-light">Coronary/Cardiac Care Unit (CCU)</h1>
+                                <p class="mb-4">{{facilities.icu.ccu.beds}}</p>
+                            </li>
+                            {{/if}}
+
+                            {{#if  facilities.icu.nicu.status}}
+                            <li>
+                                <h1 class="fs-4 text-light">Neonatal Care Unit (NICU)</h1>
+                                <p class="mb-4">{{facilities.icu.nicu.beds}}</p>
+                            </li>
+                            {{/if}}
+
+                            {{#if  facilities.icu.picu.status}}
+                            <li>
+                                <h1 class="fs-4 text-light">Pediatric Care Unit (PICU)</h1>
+                                <p class="mb-4">{{facilities.icu.picu.beds}}</p>
+                            </li>
+                            {{/if}}
+
+
+
+                        </ul>
+                    </div>
+                    {{/if}}
+
+
                     </script>
                 </div>
                 <div class="col-md d-none d-md-block mt-5 pt-3" id="body-container-2">
@@ -214,8 +265,8 @@
         integrity='sha512-LW9+kKj/cBGHqnI4ok24dUWNR/e8sUD8RLzak1mNw5Ja2JYCmTXJTF5VpgFSw+VoBfpMvPScCo2DnKTIUjrzYw=='
         crossorigin='anonymous'></script>
     <!-- <script src="../../node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script> -->
-    <script src="../../js/handlebars.min.js"></script>
-    <script src="../../js/axios.min.js"></script>
+    <script src="../../src/js/handlebars.min.js"></script>
+    <script src="../../src/js/axios.min.js"></script>
     <script src="../js/services.js"></script>
     <script src="./organization.js"></script>
 
