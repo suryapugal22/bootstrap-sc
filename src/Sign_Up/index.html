@@ -74,9 +74,10 @@
                     <li class="nav-item"><a href="../Technology/" class="nav-link text-light mx-2">Products</a></li>
                     <li class="nav-item"><a href="../Blogs/" class="nav-link text-light mx-2">Blogs</a></li>
                     <li class="nav-item"><a href="../About/" class="nav-link text-light mx-2">About Us</a></li>
-                    <li class="nav-item"><a href="../Sign_Up/" class="nav-link text-light mx-2">Log In</a></li>
+                    <li class="nav-item"><a href="https://unite.stem-council.com/" class="nav-link text-light mx-2">Log
+                            In</a></li>
                     <li class="nav-item"><a href="../Sign_Up/"
-                            class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3">Join Us</a></li>
+                            class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3 border-0">Join Us</a></li>
                 </ul>
             </div>
         </div>
@@ -92,7 +93,7 @@
                 <h1 class="display-4 text-center mb-5">
                     Get started for free
                 </h1>
-                <form autocomplete="off" onsubmit="formSubmit()">
+                <form autocomplete="off" onsubmit="submitForm()">
                     <h3 class="fs-3 fw-normal mb-3">User Details</h3>
                     <div class="row row-cols-md-2 mb-4">
                         <div class="col-md mb-3">
@@ -182,7 +183,7 @@
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-md-12 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="orgAddress" class="form-label">Address</label>
                             <input type="text" class="form-control" name="orgAddress" id="orgAddress"
                                 placeholder="1234 Main St" required>
@@ -193,21 +194,32 @@
                         <div class="col-md-6 mb-3">
                             <label for="orgCity" class="form-label">City</label>
                             <select name="orgCity" id="orgCity" class="form-select" required>
-                                <option selected>Choose...</option>
+                                <option selected disabled>Choose...</option>
                             </select>
                             <div class="invalid-feedback">
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-6 mb-3">
                             <label for="orgState" class="form-label">State</label>
                             <select name="orgState" id="orgState" class="form-select" required>
-                                <option selected>Choose...</option>
+                                <option selected disabled>Choose...</option>
                             </select>
                             <div class="invalid-feedback">
                                 Looks good!
                             </div>
                         </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="orgCountry" class="form-label">Country</label>
+                            <select name="orgCountry" id="orgCountry" class="form-select" required>
+                                <option selected disabled>Choose...</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+
                         <div class="col-md-2 mb-3">
                             <label for="orgZip" class="form-label">Zip</label>
                             <input type="text" class="form-control" name="orgZip" id="orgZip" pattern="^[1-9][0-9]{5}$"
@@ -287,8 +299,8 @@
                         Research
                     </span>. All Rights Reserved </p>
                 <ul class="col-12 col-md d-flex mb-0">
-                    <li class="ms-auto"> <a class="mx-2 text-white-50" href="javascript:void(0)">Home</a> </li>
-                    <li> <a class="mx-2 text-white-50" href="javascript:void(0)">About</a> </li>
+                    <li class="ms-auto"> <a class="mx-2 text-white-50" href="../">Home</a> </li>
+                    <li> <a class="mx-2 text-white-50" href="../About/">About</a> </li>
                     <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Privacy Policy</a> </li>
                     <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Terms of Use</a> </li>
                 </ul>
@@ -302,12 +314,12 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.min.js'
         integrity='sha512-ZvbjbJnytX9Sa03/AcbP/nh9K95tar4R0IAxTS2gh2ChiInefr1r7EpnVClpTWUEN7VarvEsH3quvkY1h0dAFg=='
         crossorigin='anonymous'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/cjs/popper.min.js'
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/cjs/popper.min.js'
         integrity='sha512-Wolz9yzdoTL6avwJTzh/0yUSqZ458EVnKgsAnOCs1H+A3VEtGDvPvD0klPKU5TkZ3BfnFPcxmr74S/YiPiTNBA=='
-        crossorigin='anonymous'></script>
+        crossorigin='anonymous'></script> -->
     <!-- <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
     <!-- <script src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script> -->
-    <script src="../../js/axios.min.js"></script>
+    <script src="../js/axios.min.js"></script>
     <script src="../js/services.js"></script>
     <script src="./signUp.js"></script>
 

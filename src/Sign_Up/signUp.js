@@ -10,6 +10,7 @@ const orgNames = new Array();
 const form = document.querySelector("form");
 const cityInput = document.getElementById("orgCity");
 const stateInput = document.getElementById("orgState");
+const countryInput = document.getElementById("orgCountry");
 
 let claim = params.get("claim") ?? false
 
@@ -22,7 +23,19 @@ countries()
     .then(res => {
         const raw = res.data[0]
         country.push(raw)
+        return res.data
     })
+    .then((country) => {
+        country.forEach((s) => {
+            const countryInput = document.getElementById("orgCountry");
+            let option = document.createElement("option");
+            let textNode = document.createTextNode(s.name)
+            option.appendChild(textNode)
+            option.setAttribute("value", s.id);
+            countryInput.appendChild(option);
+        })
+    })
+
 
 
 // GET STATE lIST ===========
@@ -130,176 +143,100 @@ orgAddressDoc.onchange = ({ target }) => {
     label.innerHTML = files[0].name;
 }
 
-// function validate() {
-//     console.log(form);
-//     const fd = new FormData();
-
-//     const formData = new FormData(form);
-//     console.log(formData.values());
-
-//     const user = {
-//         "firstName": formData.get("firstName"),
-//         "lastName": formData.get("lastName"),
-//         "email": formData.get("userEmail"),
-//         "phone": formData.get("userContact"),
-//     }
-
-//     const organization = {
-//         "type": formData.get("orgType"),
-//         "name": formData.get("orgName"),
-//         "email": formData.get("orgEmail"),
-//         "telephone": formData.get("orgContact"),
-//         "description": "",
-//         "address": formData.get("orgAddress"),
-//         "city": formData.get("orgCity"),
-//         "state": formData.get("orgState"),
-//         "country": 1,
-//         "zipcode": formData.get("orgZip"),
-//         "regNo": formData.get("orgRegNo"),
-//         "webLink": formData.get("orgWebsite"),
-//         "is_active": true,
-//         "status": "Partially Submitted",
-//         "created_by": "website",
-//         "new_org": false,
-//     }
-
-//     const documents = {
-//         "org_signature": { "signature": formData.get("orgSign"), "signature_date": formData.get("orgDate") },
-//         "org_url": formData.get("orgWebsite"),
-//     }
-
-//     const attachments = new FormData();
-//     attachments.append("files", formData.get("orgIdDoc"))
-//     attachments.append("files", formData.get("orgAddressDoc"))
-
-//     fd.append("user", user)
-//     fd.append("organization", organization)
-//     fd.append("documents", documents)
-//     fd.append("attachments", attachments)
-
-//     return fd;
-// }
-
-
-// function submitForm() {
-//     event.preventDefault();
-//     const fd = validate();
-//     signUp(fd)
-//         .then(res => console.log(res))
-// }
 
 
 
-const id_proof = document.querySelector("#id_proof");
-const address_proof = document.querySelector("#address_proof");
 
-const _formData = new FormData();
+function buildUser() {
+    let user = {
+        firstName: form.querySelector("#firstName").value,
+        lastName: form.querySelector("#lastName").value,
+        email: form.querySelector("#userEmail").value,
+        phone: form.querySelector("#userContact").value,
+        status: "created",
+    }
+    return user
+}
 
 
-// Build Form Data to Submit
-function buildForm() {
-    let fd = {
-        user: {
-            "firstName": formData.get("firstName"),
-            "lastName": formData.get("lastName"),
-            "email": formData.get("userEmail"),
-            "phone": formData.get("userContact"),
-            "status": "Created"
-        },
+function buildOrg() {
+    let organization = {
+        type: form.querySelector("#orgType").value,
+        name: form.querySelector("#orgName").value,
+        email: form.querySelector("#orgEmail").value,
+        telephone: form.querySelector("#orgContact").value,
+        regNo: form.querySelector("#orgRegNo").value,
+        weblink: form.querySelector("#orgWebsite").value,
+        address1: form.querySelector("#orgAddress").value,
+        city: form.querySelector("#orgCity").value,
+        state: form.querySelector("#orgState").value,
+        country: form.querySelector("#orgCountry").value,
+        zipCode: form.querySelector("#orgZip").value,
+
+        description: null,
+        is_active: true,
+        status: "Partially Submitted",
+        createBy: "website",
+        new_org: true,
+    }
+    return organization;
+}
+
+
+function buildSign() {
+    let documents = {
         documents: {
-            documents: {
-                "org_signature": { "signature": formData.get("orgSign"), "signature_date": formData.get("orgDate") },
-                "org_url": formData.get("orgWebsite"),
+            org_url: form.querySelector("#orgWebsite").value,
+            org_signature: {
+                signature: form.querySelector("#orgSign").value,
+                signature_date: form.querySelector("#orgDate").value,
             }
-        },
-        org_services: {
-            services: {},
-            is_active: true,
         }
     }
 
-    if (!claim) {
-        fd.organization = {
-            "type": formData.get("orgType"),
-            "name": formData.get("orgName"),
-            "email": formData.get("orgEmail"),
-            "telephone": formData.get("orgContact"),
-            "description": "",
-            "address": formData.get("orgAddress"),
-            "city": formData.get("orgCity"),
-            "state": formData.get("orgState"),
-            "country": 1,
-            "zipcode": formData.get("orgZip"),
-            "regNo": formData.get("orgRegNo"),
-            "webLink": formData.get("orgWebsite"),
-            "is_active": true,
-            "status": "Partially Submitted",
-            "created_by": "website",
-            "new_org": false,
-        }
-    } else {
-        fd.organization = org;
-        fd.organization.new_org = false;
-    }
-    return fd;
-}
-
-// Gather files to be uploaded to S3 Bucket
-function gatherFiles(event) {
-    const filesDiv = form.querySelectorAll("input[type=file]");
-    let attachments = [];
-    filesDiv.forEach((input) => {
-        attachments.push(input.id);
-        console.log(input);
-        if (input.files[0])
-            _formData.append('files', input.files[0])
-        console.log(attachments);
-    })
-    _formData.append('attachments', JSON.stringify(attachments));
+    return documents;
 }
 
 
-// Upload documents to AWS S3 and Get Key
-async function uploadDoc(files) {
-    const rawData = await multipleFileUpload(files);
-    return rawData.data.responseMessage;
-}
 
-
-// Submitting Form Data
-async function submitOnlyForm(fd) {
-    signUp(fd)
-        .then((res) => {
-            console.log(fd);
-            console.log(res.data);
-            submitResponseMessage(res.data)
-        })
-}
-
-
-// Form Submit Initiation
-async function formSubmit() {
+function submitForm() {
     event.preventDefault();
-    const fd = buildForm();
-    gatherFiles();
-    console.log(fd.user);
-    _formData.append('user', JSON.stringify(fd.user))
-    _formData.append('organization', JSON.stringify(fd.organization))
-    console.log(fd.documents.documents);
-    _formData.append('documents', JSON.stringify(fd.documents))
 
-    await signUp(_formData).then(res => {
-        console.log(res);
-        submitResponseMessage(res);
-    })
-}
 
-// Response After submitting Form Data
-function submitResponseMessage(res) {
-    if (res.status === 200) {
-        console.log("response" + JSON.stringify(res.data));
-    } else
-        console.error(res)
+    const fd = new FormData();
+    const user = buildUser();
+    const organization = buildOrg();
+    const documents = buildSign();
+    let attachments = [];
+
+
+
+    fd.append("user", JSON.stringify(user));
+    fd.append("organization", JSON.stringify(organization));
+    fd.append("documents", JSON.stringify(documents));
+
+
+    if (orgIdDoc.files[0]) {
+        let file = orgIdDoc.files[0]
+        fd.append("files", file)
+        attachments.push('id_proof')
+    }
+
+
+    if (orgAddressDoc.files[0]) {
+        let file = orgAddressDoc.files[0]
+        fd.append("files", file)
+        attachments.push('address_proof')
+    }
+
+
+    fd.append("attachments", JSON.stringify(attachments));
+
+    signUp(fd)
+        .then(res => {
+            console.log(res);
+        })
+
 }
 
 

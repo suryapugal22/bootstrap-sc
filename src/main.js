@@ -5,10 +5,10 @@ getAllBlogs()
     .then(res => {
         console.log(res);
         const blogs = res.data;
+        blogs.length = 3
         blogsContainer.innerHTML = blogsTemplate(blogs)
-        clampDesc();
+        clampDesc()
     })
-
 
 function clampDesc() {
     let group_desc = document.querySelectorAll('.clamp')

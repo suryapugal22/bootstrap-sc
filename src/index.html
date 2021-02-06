@@ -75,9 +75,10 @@
                     <li class="nav-item"><a href="./Technology/" class="nav-link text-light mx-2">Products</a></li>
                     <li class="nav-item"><a href="./Blogs/" class="nav-link text-light mx-2">Blogs</a></li>
                     <li class="nav-item"><a href="./About/" class="nav-link text-light mx-2">About Us</a></li>
-                    <li class="nav-item"><a href="./Sign_Up/" class="nav-link text-light mx-2">Log In</a></li>
+                    <li class="nav-item"><a href="https://unite.stem-council.com/" class="nav-link text-light mx-2">Log
+                            In</a></li>
                     <li class="nav-item"><a href="./Sign_Up/"
-                            class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3">Join Us</a></li>
+                            class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3 border-0">Join Us</a></li>
                 </ul>
             </div>
         </div>
@@ -266,7 +267,7 @@
                         <div class="card-img-overlay d-flex flex-column">
                             <h5 class="card-title mb-0 mt-auto fw-noraml fs-3">SAGE</h5>
                             <p class="card-text mt-0">Submissions and Approvals Gateway for Ethics</p>
-                            <a href="javascript:void(0)" class="stretched-link col-3 btn btn-light">Know More</a>
+                            <a href="Technology/" class="stretched-link col-3 btn btn-light">Know More</a>
                         </div>
                     </div>
                 </div>
@@ -278,7 +279,7 @@
                             <h5 class="card-title mb-0 mt-auto fw-noraml fs-3">STAR</h5>
                             <p class="card-text mt-0">Automated Electronic Feasibility Management System
                             </p>
-                            <a href="javascript:void(0)" class="stretched-link col-3 btn btn-light">Know More</a>
+                            <a href="Technology/" class="stretched-link col-3 btn btn-light">Know More</a>
                         </div>
                     </div>
                 </div>
@@ -289,7 +290,7 @@
                         <div class="card-img-overlay d-flex flex-column">
                             <h5 class="card-title mb-0 mt-auto fw-noraml fs-3">RFP</h5>
                             <p class="card-text mt-0">Send, Receive and Manage Request for Proposal (RFP)</p>
-                            <a href="javascript:void(0)" class="stretched-link col-3 btn btn-light disabled">Coming
+                            <a href="Technology/" class="stretched-link col-3 btn btn-light">Coming
                                 Soon</a>
                         </div>
                     </div>
@@ -303,7 +304,7 @@
                             <p class="card-text mt-0">
                                 Learning Programs and Educational tools related to clinical research
                             </p>
-                            <a href="javascript:void(0)" class="stretched-link col-3 btn btn-light disabled">Coming
+                            <a href="Technology/" class="stretched-link col-3 btn btn-light">Coming
                                 Soon</a>
                         </div>
                     </div>
@@ -323,7 +324,24 @@
 
             <div class="container-fluid  mt-5">
                 <h3 class="display-5"> Blogs </h3>
-                <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+                <div class="row row-cols-1 row-cols-md-3 g-4 mt-1" id="blogsContainer">
+                    <script type="text/x-handlebars-template" id="blogsTemplate">
+                    {{#each this}}
+                    <div data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" class="col">
+                        <div class="card border-1 rounded bg-white shadow-sm text-dark">
+                            <img src="https://localdev-sage-website-ui-assets-s3.s3.ap-south-1.amazonaws.com/{{attachments}}" style="height: 200px; object-fit: cover;object-position: center;" class="card-img-top" alt="blog_cover">
+                            <div class="card-body">
+                                <h5 class="card-title">{{title}}</h5>
+                                <div class="card-text mb-3 clamp">
+                                    {{{description}}}
+                                </div>
+                                <a href="Blogs/Blog/?t={{title}}&i={{id}}" class="stretched-link text-primary"> Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    </script>
+
                     <div data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" class="col">
                         <div class="card border-1 rounded bg-white shadow-sm text-dark">
                             <img src="//unsplash.it/400/200" class="card-img-top" alt="...">
@@ -489,7 +507,7 @@
                     </span>. All Rights Reserved </p>
                 <ul class="col-12 col-md d-flex mb-0">
                     <li class="ms-auto"> <a class="mx-2 text-white-50" href="javascript:void(0)">Home</a> </li>
-                    <li> <a class="mx-2 text-white-50" href="javascript:void(0)">About</a> </li>
+                    <li> <a class="mx-2 text-white-50" href="About/">About</a> </li>
                     <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Privacy Policy</a> </li>
                     <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Terms of Use</a> </li>
                 </ul>
@@ -511,7 +529,13 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js'
         integrity='sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=='
         crossorigin='anonymous'></script>
-    <!-- <script src="../node_modules/aos/dist/aos.js"></script> -->
+    <script type="text/javascript" src="../js/clamp.js"></script>
+    <script src="js/handlebars.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/services.js"></script>
+    <script src="main.js"></script>
+
+
     <script>
         AOS.init();
     </script>

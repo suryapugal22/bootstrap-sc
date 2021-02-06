@@ -73,9 +73,10 @@
                     <li class="nav-item"><a href="../../Technology/" class="nav-link text-light mx-2">Products</a></li>
                     <li class="nav-item"><a href="../../Blogs/" class="nav-link text-light mx-2">Blogs</a></li>
                     <li class="nav-item"><a href="../../About/" class="nav-link text-light mx-2">About Us</a></li>
-                    <li class="nav-item"><a href="../../Sign_Up/" class="nav-link text-light mx-2">Log In</a></li>
+                    <li class="nav-item"><a href="https://unite.stem-council.com/" class="nav-link text-light mx-2">Log
+                            In</a></li>
                     <li class="nav-item"><a href="../../Sign_Up/"
-                            class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3">Join Us</a></li>
+                            class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3 border-0">Join Us</a></li>
                 </ul>
             </div>
         </div>
@@ -87,8 +88,8 @@
     <section class="bg-blue text-white-50 pb-5" id="blogsContainer">
         <script type="text/x-handlebars-template" id="blogsTemplate">
         <div class="container-fluid px-0">
-            <img src="//unsplash.it/1000/300" width="100%" alt="blog-cover" class="img-fluid"
-                style="filter: brightness(50%);">
+            <img src="https://localdev-sage-website-ui-assets-s3.s3.ap-south-1.amazonaws.com/{{attachments}}" width="100%" alt="blog-cover" 
+                style=" filter: brightness(60%); height: 75vh; object-fit: cover;object-position: center;" class="img-fluid">
         </div>
 
         <div class="container pt-5">
@@ -113,40 +114,10 @@
                             class="bi bi-share-fill"></i></a>
                 </small>
             </div>
-
-            <p class="lead desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, inventore, repellat similique ducimus
-                quia minima, eveniet vitae eos odit cupiditate numquam repudiandae amet saepe tempora illum ad atque.
-                Voluptatum, dolores!
-            </p>
-            <p class="lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at eveniet sit dolorum optio aliquid
-                maiores pariatur porro velit fugit laboriosam perferendis, eligendi placeat fugiat animi dolorem
-                reiciendis odit ullam.Error iusto tenetur nobis libero ex soluta, nihil saepe temporibus vitae illum in
-                vel inventore quaerat doloribus voluptas nam eius fugiat sequi laboriosam, iste sunt deleniti repellat!
-                Dignissimos, in harum.
-            </p>
-            <p class="lead">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque similique sequi rem eius? Delectus
-                eaque, ea ipsum, officiis et dolorem ad ut totam excepturi, harum molestiae amet sapiente consectetur
-                fugiat
-            </p>
-            <p class="lead">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem, fuga. Magnam ipsum nesciunt, fuga odio
-                commodi deleniti delectus, ut dolor esse, alias quisquam odit suscipit repellat nemo illo sapiente
-                magni.
-                Optio nobis laudantium inventore cupiditate animi consequuntur sapiente eveniet velit rem incidunt
-                deserunt iure facilis consequatur officiis illo ratione doloremque enim repudiandae, cumque distinctio.
-                Totam sit ab ipsam suscipit cum?
-                Quam harum doloremque error, qui, expedita ipsam consequuntur quod, corrupti reiciendis voluptatem
-                corporis! Saepe praesentium reprehenderit corporis nostrum sint, aspernatur ex perferendis dolores
-                impedit magnam velit doloribus magni ea expedita.
-                Facilis voluptate repellat non, fuga aliquam assumenda possimus nisi minus consectetur. Beatae aperiam
-                veritatis est labore ratione, temporibus repellendus voluptatum, reiciendis sed illo, accusantium error
-                dicta inventore unde! Pariatur, fugit.
-            </p>
-
-
+            
+            <div class="lead">
+                {{{description}}}
+            </div>
 
         </div>
         </script>
@@ -163,8 +134,8 @@
                         Research
                     </span>. All Rights Reserved </p>
                 <ul class="col-12 col-md d-flex mb-0">
-                    <li class="ms-auto"> <a class="mx-2 text-white-50" href="javascript:void(0)">Home</a> </li>
-                    <li> <a class="mx-2 text-white-50" href="javascript:void(0)">About</a> </li>
+                    <li class="ms-auto"> <a class="mx-2 text-white-50" href=".././/">Home</a> </li>
+                    <li> <a class="mx-2 text-white-50" href="../../About/">About</a> </li>
                     <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Privacy Policy</a> </li>
                     <li> <a class="mx-2 text-white-50" href="javascript:void(0)">Terms of Use</a> </li>
                 </ul>
