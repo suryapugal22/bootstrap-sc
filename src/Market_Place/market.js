@@ -130,6 +130,7 @@ async function getData(limit = 15) {
 
 
 getData();
+groupType();
 
 
 function clampDesc() {
@@ -152,7 +153,7 @@ function serviceInputFn(event) {
         if (s.name.toLowerCase().trim().includes(value.toLowerCase().trim()))
             return s
     })
-    service_container.innerHTML = service_template(_serviceList)
+    service_container.innerHTML = service_template(_serviceList);
 }
 
 
@@ -271,12 +272,11 @@ window.onloadstart = () => {
 
 
 
-async function groupType() {
-    const groupTypes = document.getElementsByName("type")
-    await groupTypes.forEach(g => {
-        console.log(g.onclick);
+function groupType() {
+    console.log("groupType");
+    const _groupTypes = document.getElementsByName("type")
+    _groupTypes.forEach(g => {
         g.onclick = () => {
-            console.log(event);
             if (g.checked)
                 selected.type.push(g.value)
             else {
@@ -286,7 +286,6 @@ async function groupType() {
             console.log(selected.type)
             getData();
         }
-        console.log(g.onclick);
     })
 }
 

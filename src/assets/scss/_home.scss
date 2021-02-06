@@ -1,5 +1,9 @@
 nav {
     .navbar-collapse {
+        .dropdown-menu[aria-labelledby=providers] {
+            transform: translateX(-52%);
+        }
+
         .dropdown-item {
             &:active {
                 background-color: transparent;

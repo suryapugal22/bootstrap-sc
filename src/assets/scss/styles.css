@@ -11366,6 +11366,11 @@ li {
   }
 }
 
+nav .navbar-collapse .dropdown-menu[aria-labelledby=providers] {
+  -webkit-transform: translateX(-52%);
+          transform: translateX(-52%);
+}
+
 nav .navbar-collapse .dropdown-item:active {
   background-color: transparent;
 }
