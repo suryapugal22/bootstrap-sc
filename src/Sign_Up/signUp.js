@@ -173,7 +173,7 @@ function buildOrg() {
         country: form.querySelector("#orgCountry").value,
         zipCode: form.querySelector("#orgZip").value,
 
-        description: null,
+        description: "",
         is_active: true,
         status: "Partially Submitted",
         createBy: "website",
@@ -198,6 +198,24 @@ function buildSign() {
 }
 
 
+function Validating(arg) {
+
+    let valid = false
+
+    arg.forEach((a) => [
+        Object.entries(({ key, value }) => {
+            if (value) {
+                valid = false;
+            } else {
+                valid = true;
+            }
+        })
+    ])
+
+    return valid
+
+}
+
 
 function submitForm() {
     event.preventDefault();
@@ -210,32 +228,39 @@ function submitForm() {
     let attachments = [];
 
 
+    const status = Validating({ user, organization, documents })
 
-    fd.append("user", JSON.stringify(user));
-    fd.append("organization", JSON.stringify(organization));
-    fd.append("documents", JSON.stringify(documents));
+    if (state) {
+
+        if (orgIdDoc.files[0]) {
+            let file = orgIdDoc.files[0]
+            fd.append("files", file)
+            attachments.push('id_proof')
+        }
 
 
-    if (orgIdDoc.files[0]) {
-        let file = orgIdDoc.files[0]
-        fd.append("files", file)
-        attachments.push('id_proof')
+        if (orgAddressDoc.files[0]) {
+            let file = orgAddressDoc.files[0]
+            fd.append("files", file)
+            attachments.push('address_proof')
+        }
+
+
+        fd.append("user", JSON.stringify(user));
+        fd.append("organization", JSON.stringify(organization));
+        fd.append("documents", JSON.stringify(documents));
+        fd.append("attachments", JSON.stringify(attachments));
+
+
+        signUp(fd)
+            .then(res => {
+                
+                if(status === 200)
+                window.location.href = '../'
+            })
+
+
     }
-
-
-    if (orgAddressDoc.files[0]) {
-        let file = orgAddressDoc.files[0]
-        fd.append("files", file)
-        attachments.push('address_proof')
-    }
-
-
-    fd.append("attachments", JSON.stringify(attachments));
-
-    signUp(fd)
-        .then(res => {
-            console.log(res);
-        })
 
 }
 
