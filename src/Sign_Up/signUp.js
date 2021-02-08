@@ -1,6 +1,6 @@
 const date = new Date();
 const params = new URLSearchParams(location.search);
-const id = params.get("id") ?? false;
+const id = params.get("i") ?? false;
 const city = new Array();
 const state = new Array();
 const country = new Array();
@@ -13,6 +13,8 @@ const stateInput = document.getElementById("orgState");
 const countryInput = document.getElementById("orgCountry");
 
 let claim = params.get("claim") ?? false
+
+
 
 // SET SIGN DATE ============
 document.getElementById("orgDate").valueAsDate = date;
@@ -75,6 +77,12 @@ cities()
             cityInput.appendChild(option);
         })
     })
+
+
+
+if (id)
+    appendOrg();
+
 
 
 // GET EMAIL LIST ============
@@ -177,10 +185,19 @@ function buildOrg() {
         is_active: true,
         status: "Partially Submitted",
         createBy: "website",
-        new_org: true,
+
     }
+    if (id) {
+        organization.new_org = false;
+        organization.id = id
+    }
+    else
+        organization.new_org = true;
+
+
     return organization;
 }
+
 
 
 function buildSign() {
@@ -198,10 +215,9 @@ function buildSign() {
 }
 
 
+
 function Validating(arg) {
-
     let valid = false
-
     arg.forEach((a) => [
         Object.entries(({ key, value }) => {
             if (value) {
@@ -211,10 +227,36 @@ function Validating(arg) {
             }
         })
     ])
-
     return valid
-
 }
+
+
+
+async function appendOrg() {
+    const pageNo = 1
+    const limit = 1
+    await organizationLimitedList({ limit, pageNo, id })
+        .then(res => {
+            console.log(res);
+            return res.data.results[0];
+        })
+        .then(data => {
+            console.log(data);
+            form.querySelector("#orgType").value = data.type;
+            form.querySelector("#orgName").value = data.name;
+            form.querySelector("#orgEmail").value = data.email;
+            form.querySelector("#orgContact").value = data.phone;
+            form.querySelector("#orgRegNo").value = data.regNo ?? "";
+            form.querySelector("#orgWebsite").value = data.webLink ?? "";
+            form.querySelector("#orgAddress").value = data.address;
+            form.querySelector("#orgCity").value = data.city;
+            form.querySelector("#orgState").value = data.state;
+            form.querySelector("#orgCountry").value = data.country;
+            form.querySelector("#orgZip").value = data.zipcode;
+        })
+}
+
+
 
 
 function submitForm() {
@@ -228,7 +270,7 @@ function submitForm() {
     let attachments = [];
 
 
-    const status = Validating({ user, organization, documents })
+    // const status = Validating({ user, organization, documents })
 
     if (state) {
 
@@ -254,11 +296,9 @@ function submitForm() {
 
         signUp(fd)
             .then(res => {
-                
-                if(status === 200)
-                window.location.href = '../'
+                if (status === 200)
+                    window.location.href = '../'
             })
-
 
     }
 
