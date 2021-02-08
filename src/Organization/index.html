@@ -39,7 +39,7 @@
                         <a href="#" class="nav-link text-light mx-2 dropdown-toggle" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" id="providers">
                             Providers</a>
-<ul class="dropdown-menu text-black shadow" aria-labelledby="providers">
+                        <ul class="dropdown-menu text-black shadow" aria-labelledby="providers">
                             <div class="d-flex flex-row p-3">
                                 <li class="col col-md">
                                     <h6 class="text-nowrap pb-2 p-3 fs-5">Industry Researcher and Vendors</h6>
@@ -73,7 +73,8 @@
                     <li class="nav-item"><a href="../Technology/" class="nav-link text-light mx-2">Products</a></li>
                     <li class="nav-item"><a href="../Blogs/" class="nav-link text-light mx-2">Blogs</a></li>
                     <li class="nav-item"><a href="../About/" class="nav-link text-light mx-2">About Us</a></li>
-                    <li class="nav-item"><a href="https://unite.stem-council.com/" class="nav-link text-light mx-2">Log In</a></li>
+                    <li class="nav-item"><a href="https://unite.stem-council.com/" class="nav-link text-light mx-2">Log
+                            In</a></li>
                     <li class="nav-item"><a href="../Sign_Up/"
                             class="nav-link mx-2 btn btn-success bg-cyan text-dark px-3 border-0">Join Us</a></li>
                 </ul>
@@ -137,6 +138,7 @@
                             </p>
                         </div>
 
+
                         {{#if services}}
                         <div class="mb-5">
                             <h3 class="display-5 pb-3 text-white">Services</h3>
@@ -151,49 +153,111 @@
                         </div>
                         {{/if}}
 
+                        
                     {{#if facilities}}
                     <div class="mb-3">
-                        <h3 class="display-5 my-5 text-light"> Facilities </h3>
-                        <ul>
+                        <h3 class="display-5 mt-5 mb-2 text-light"> Facilities </h3>
+                        <ul class="px-0">
                             {{#if facilities.defibrillators}}
                             <li>
-                                <h1 class="fs-4 text-light"> Defibrillators </h1>
+                                <h1 class="fs-5 fw-light"> Defibrillators </h1>
                             </li>
                             {{/if}}
 
-                            {{#if  facilities.icu.icu.status}}
+                            {{#if (ifFa facilities.icu.icu.status)}}
                             <li>
-                                <h1 class="fs-4 text-light">General/Surgical Care Unit</h1>
-                                <p class="mb-4">{{facilities.icu.icu.beds}}</p>
+                                <h1 class="fs-5 fw-light">General/Surgical Care Unit - <span class="mb-4">{{facilities.icu.icu.beds}}</span>  </h1>
+                                
                             </li>
                             {{/if}}
 
-                            {{#if  facilities.icu.ccu.status}}
+                            {{#if (ifFa facilities.icu.ccu.status)}}
                             <li>
-                                <h1 class="fs-4 text-light">Coronary/Cardiac Care Unit (CCU)</h1>
-                                <p class="mb-4">{{facilities.icu.ccu.beds}}</p>
+                                <h1 class="fs-5 fw-light">Coronary/Cardiac Care Unit (CCU) - <span class="mb-4">{{facilities.icu.ccu.beds}}</span> </h1>
+                                
                             </li>
                             {{/if}}
 
-                            {{#if  facilities.icu.nicu.status}}
+                            {{#if (ifFa facilities.icu.nicu.status)}}
                             <li>
-                                <h1 class="fs-4 text-light">Neonatal Care Unit (NICU)</h1>
-                                <p class="mb-4">{{facilities.icu.nicu.beds}}</p>
+                                <h1 class="fs-5 fw-light">Neonatal Care Unit (NICU) - <span class="mb-4">{{facilities.icu.nicu.beds}}</span></h1>
+                                
                             </li>
                             {{/if}}
 
-                            {{#if  facilities.icu.picu.status}}
+                            {{#if (ifFa facilities.icu.picu.status)}}
                             <li>
-                                <h1 class="fs-4 text-light">Pediatric Care Unit (PICU)</h1>
-                                <p class="mb-4">{{facilities.icu.picu.beds}}</p>
+                                <h1 class="fs-5 fw-light">Pediatric Care Unit (PICU) - <span class="mb-4">{{facilities.icu.picu.beds}}</span></h1>
+                                
                             </li>
                             {{/if}}
 
+
+                            {{#if (ifFa facilities.imaging.xray)}}
+                                <h1 class="fs-5 fw-light">XRAY</h1>
+                            {{/if}}
+
+                            {{#if (ifFa facilities.imaging.ctscan)}}
+                                <h1 class="fs-5 fw-light">CT Scan</h1>
+                            {{/if}}
+
+                            {{#if (ifFa facilities.imaging.mri)}}
+                                <h1 class="fs-5 fw-light">MRI</h1>
+                            {{/if}}
+
+                            {{#if (ifFa facilities.imaging.pet)}}
+                                <h1 class="fs-5 fw-light">Nuclear Medicine imaging, including Positron emission tomography (PET)</h1>
+                            {{/if}}
+
+                            {{#if (ifFa facilities.imaging.ultrasound)}}
+                                <h1 class="fs-5 fw-light">ULTRASOUND</h1>
+                            {{/if}}
+
+
+                            <!-- FACILITIES LIST -->
+
+                            {{#if (ifFa facilities.lab.basicmetabolic)}}
+                            <h1 class="fs-5 fw-light">Basic Metabolic Panel</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.commetabolic)}}
+                            <h1 class="fs-5 fw-light">Comprehensive Metabolic Panel</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.fbc)}}
+                            <h1 class="fs-5 fw-light">Full Blood Count </h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.gas)}}
+                            <h1 class="fs-5 fw-light">Blood Gas Test</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.hba1c)}}
+                            <h1 class="fs-5 fw-light">Blood Glucose (HbA1c)</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.inr)}}
+                            <h1 class="fs-5 fw-light">International normalized ratio</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.lipid)}}
+                            <h1 class="fs-5 fw-light">Lipid Profile</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.live)}}
+                            <h1 class="fs-5 fw-light">Liver Function Test</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.thyroid)}}
+                            <h1 class="fs-5 fw-light">Thyroid-Stimulating Hormone</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.trop)}}
+                            <h1 class="fs-5 fw-light">Troponin</h1>
+                            {{/if}}
+                            {{#if (ifFa facilities.lab.urea)}}
+                            <h1 class="fs-5 fw-light">Urea and Electrolytes</h1>
+                            {{/if}}
 
 
                         </ul>
                     </div>
                     {{/if}}
+
+
+
+
 
 
                     </script>

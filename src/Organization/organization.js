@@ -21,6 +21,14 @@ Handlebars.registerHelper('stat', (val) => {
 })
 
 
+Handlebars.registerHelper('ifFa', (val) => {
+    const value = parseInt(val)
+    if (value > 0)
+        return true
+    return false
+})
+
+
 
 async function getData(id) {
     const pageNo = 1
